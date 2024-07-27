@@ -1,0 +1,26 @@
+{% load static %}
+{% block extrahead %}
+<link rel="stylesheet" href="{% static 'gtp/style.css' %}">
+{% endblock %}
+<form action="chat" method="post" entype="application/x-www-form-urlencoded">
+    {% csrf_token %}
+    <div class="chat-container">
+        <div class="chat-header">
+            <h1>AIVLE Chatbot</h1>
+        </div>
+        <div class="chat-bb">
+            <div class="chat-body" id="chatBody">
+                <div class="chat-message bot-message">
+                    <p>Hello! How can I assist you today?</p>
+                </div>
+                <div class="chat-message user-message">
+                    <p>Hi! I need some help.</p>
+                </div>
+            </div>
+        </div>
+        <div class="chat-footer">
+            <input type="text" id="question" name="question" placeholder="Type a message...">
+            <button id="text-button" type="submit">전송</button>
+        </div>
+    </div>
+</form>

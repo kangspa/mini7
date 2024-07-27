@@ -1,0 +1,2 @@
+admin / admin123 관리자계정
+test / pw1234pw 테스트 일반 계정

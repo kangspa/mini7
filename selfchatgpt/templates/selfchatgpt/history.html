@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% load static %}
+{% block static %}
+    <link rel="stylesheet" href="{% static 'history.css' %}" /> 
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <table>
+            <thead>
+            <tr>
+                <th>시각</th>
+                <th>사용자</th>
+                <th>질문</th>
+                <th>답변</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for chat in chats %}
+                    <tr>
+                        <td>{{chat.time}}</td>
+                        <td>{{chat.username}}</td>
+                        <td>{{chat.question}}</td>
+                        <td>{{chat.result}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

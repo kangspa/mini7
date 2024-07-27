@@ -1,0 +1,39 @@
+{% load static %}
+{% block extrahead %}
+<link rel="stylesheet" href="{% static 'selfchatgpt/style.css' %}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+{% endblock %}
+<form id="chat-form" action="index" method="post" enctype="application/x-www-form-urlencoded">
+    {% csrf_token %}
+    <div class="chat-container">
+        <div class="chat-header">
+            <a href="/">
+                <span class="material-symbols-outlined" id="close-b">close</span>
+            </a>
+            <h1 class="head1">AIVLE Chatbot</h1>
+        </div>
+        <div class="chat-body" id="chatBody">
+                
+        </div>
+        <div class="chat-footer">
+            <input type="text" id="question" name="question" placeholder="질문을 입력해주세요.">
+            <button id="text-button" type="submit">
+                <span class="material-symbols-outlined">
+                    send
+                </span>
+            </button>
+        </div>
+    </div>
+</form>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script src="{% static 'selfchatgpt/chat.js' %}"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // 부모 창(iframe)에서 엑세스할 수 있는지 확인
+        var isInIframe = window.self !== window.top;
+        // iframe에서 열렸을 때만 'close-b'를 숨깁니다.
+        if (isInIframe) {
+            document.getElementById("close-b").style.display = "none";
+        }
+    });
+</script>
